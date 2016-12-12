@@ -24,6 +24,9 @@ $logentries=LogEntriesByLogname($range,$logn);
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
       <h1><center>SERVER INFORMATION</center></h1>
       <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
+      <div id='ajax_loader' style="position: fixed; left: 50%; top: 50%; display: none;">
+    <img src="themes/img/ajax-loader.gif"></img>
+</div>
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
@@ -49,8 +52,8 @@ $logentries=LogEntriesByLogname($range,$logn);
           echo "<tbody>";
             foreach ($logentries as $logentry) {
             echo "<tr>";
-              echo "<td><center><p>".$logentry['time']."</p></center></td>";
-              echo "<td>".$logentry['logentry']."</td>";
+              echo "<td><center><h6>".$logentry['time']."</h6></center></td>";
+              echo "<td><h6>".$logentry['logentry']."</h6></td>";
             echo "</tr>";
             }
           echo "</tbody>";

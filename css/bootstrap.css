@@ -12,6 +12,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -4965,7 +4969,7 @@ a.badge:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #303030;
-  background-image: url(http://localhost:88/images/jumbotron.png);
+  background-image: url('../images/jumbotron.png');
   background-repeat: repeat;
   text-shadow: black 0.3em 0.3em 0.3em;
 }
@@ -7049,4 +7053,3 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-heading {
   background-color: #464545;
 }
-

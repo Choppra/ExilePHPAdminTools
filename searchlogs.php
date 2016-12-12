@@ -14,6 +14,12 @@ $Player=FindPlayerByID($pid);
 ?>
 <!DOCTYPE html>
 <?php include('header.php'); ?>
+<head>
+  <style>
+  table { table-layout: fixed; }
+  table td { word-wrap: break-word; }
+  </style>
+</head>
 <html>
   <body>
     <!-- Navigation Bar Start -->
@@ -53,8 +59,8 @@ $Player=FindPlayerByID($pid);
           $entries=FindLogEntries($pid,$range,$Logn['logname']);
           foreach ($entries as $entry) {
           echo "<tr>";
-            echo "<td><h6><center>".$entry['time']."</center><h6></td>";
-            echo "<td><h6>".$entry['logentry']."<h6></td>";
+            echo "<td><h6><center>".$entry['time']."</center></h6></td>";
+            echo "<td><h6>".$entry['logentry']."</h6></td>";
           echo "</tr>";
           }
         echo "</tbody>";

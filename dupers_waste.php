@@ -51,7 +51,7 @@ $Accounts=FindDupersWaste();
           echo "<tr>";
             echo "<td><center>".$Account['time_sold']."<center></td>";
             echo "<td><center>".$Account['playername']."<center></td>";
-            echo "<td><center><a href='tanoa_searchlogs.php?pid=".$Account['playerid']."'>".$Account['playerid']."</a></center></td>";
+            echo "<td><center><a href='searchlogs.php?pid=".$Account['playerid']."'>".$Account['playerid']."</a></center></td>";
             echo "<td><center>".$Account['vehicleclass']."<center></td>";
             echo "<td><center>".$Account['item_sold']."<center></td>";
             echo "<td><center>".$Account['quantity']."<center></td>";

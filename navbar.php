@@ -15,7 +15,7 @@ header("Location: " . $_SERVER["PHP_SELF"]);
         <div class="navbar-header">
             <a class="navbar-brand">
                 <img style="max-width:100px; margin-top: -7px;"
-                src="/images/atd.png">
+                src="./images/atd.png">
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
