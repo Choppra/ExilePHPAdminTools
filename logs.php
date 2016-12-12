@@ -14,7 +14,7 @@ $lognames=UniqueLognames();
     <!-- Navigation Bar End -->
     <!-- Jumbotron - Start -->
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
-      <h1><center>SERVER INFORMATION</center></h1>
+      <h1><center>SERVER LOGS</center></h1>
       <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
     </div>
     <div style="height: 10px;">&nbsp;</div>
