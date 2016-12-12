@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/queries.php";
+$path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $Accounts=FindDupersWaste();
 ?>
@@ -20,12 +20,12 @@ $Accounts=FindDupersWaste();
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
     <center>
-<div class="form-group">
-    <div class="input-group input-group-default">
+    <div class="form-group">
+      <div class="input-group input-group-default">
         <input class="form-control input-sm" type="text" id="search" placeholder="Quick Search...">
+      </div>
     </div>
-</div>
-</center>
+    </center>
     <!-- Datatable Start -->
     <div class=" table-responsive" style="max-width:1500px;  margin:auto;">
       <table class=" table-bordered table table-hover table-striped" id="tabla" style="margin: auto;">

@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/queries.php";
+  $path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $p_name=trim($_POST['pname']);
 if ($p_name!="") {

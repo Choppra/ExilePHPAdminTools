@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/queries.php";
+$path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $tid=$_GET['tid'];
 $Rows=RestoreTerritory($tid);

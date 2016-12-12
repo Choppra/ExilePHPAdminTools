@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/queries.php";
+$path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once($path);
 if (count($_GET)) {
 $pid=$_GET['pid'];
@@ -29,12 +29,12 @@ $Player=FindPlayerByID($pid);
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
-                <center>
-            <div>
-                <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a><br>
-            </div>
-            </center>
-    <!-- Datatable Start -->   
+    <center>
+    <div>
+      <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a><br>
+    </div>
+    </center>
+    <!-- Datatable Start -->
   </div><br>
   
   <div class="row" style="margin-left: 100px; margin-right: 100px;">
@@ -80,5 +80,5 @@ $Player=FindPlayerByID($pid);
 </body>
 </html>
 <script type="text/javascript">
-  $( '#table' ).searchable();
+$( '#table' ).searchable();
 </script>

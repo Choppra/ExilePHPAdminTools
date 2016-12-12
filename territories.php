@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/queries.php";
+$path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $Territories=Territories();
 ?>
@@ -19,13 +19,13 @@ $Territories=Territories();
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
     <!-- Datatable Start -->
-<center>
-<div class="form-group">
-    <div class="input-group input-group-default">
+    <center>
+    <div class="form-group">
+      <div class="input-group input-group-default">
         <input class="form-control input-sm" type="text" id="search" placeholder="Quick Search...">
+      </div>
     </div>
-</div>
-</center>
+    </center>
     <div class=" table-responsive" style="max-width:1400px;  margin:auto;">
       <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
         <thead>
@@ -47,7 +47,7 @@ $Territories=Territories();
             echo "<td><center>".$Territory['id']."<center></td>";
             echo "<td><center>".$Territory['name']."<center></td>";
             echo "<td><center>".$Territory['playername']."</center></td>";
-            echo "<td><center>".$Territory['owner_uid']."</center></td>";
+            echo "<td><center><a href='playerinfo.php?pid=".$Territory['owner_uid']."'>".$Territory['owner_uid']."</a></center</td>";
             echo "<td><center>".$Territory['level']."<center></td>";
             echo "<td><center>".$Territory['radius']."<center></td>";
             echo "<td><center>".$Territory['last_paid_at']."<center></td>";
@@ -66,5 +66,5 @@ $Territories=Territories();
   </body>
 </html>
 <script type="text/javascript">
-  $( '#table' ).searchable();
+$( '#table' ).searchable();
 </script>
