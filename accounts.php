@@ -8,6 +8,7 @@ $Accounts=AllAccounts();
 <?php include('header.php'); ?>
 <html>
   <body>
+
     <!-- Navigation Bar Start -->
     <?php $search = "False"; ?> <!-- True or False -->
     <?php include('navbar.php'); ?>
@@ -95,3 +96,5 @@ $Accounts=AllAccounts();
 <script type="text/javascript">
 $( '#table' ).searchable();
 </script>
+
+
