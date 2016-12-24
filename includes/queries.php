@@ -493,7 +493,7 @@ function TerritoriesNotRestored(){
     function RestoreTerritory($tid){
         $connect=connectdb();
         try {
-            $sql="UPDATE territory SET deleted_at = NULL, last_paid_at = NOW(), flag_stolen = 1, flag_stolen_by_uid = NULL, flag_stolen_at = NULL  WHERE id=:tid";
+            $sql="UPDATE territory SET deleted_at = NULL, last_paid_at = NOW(), flag_stolen = 0, flag_stolen_by_uid = NULL, flag_stolen_at = NULL  WHERE id=:tid";
             $stmt=$connect->prepare($sql);
             $stmt->bindValue(":tid",$tid);
             $stmt->execute();
