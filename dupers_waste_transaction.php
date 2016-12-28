@@ -29,7 +29,7 @@ $Transactions=FindTransactionByID($pid);
       <div>
         &nbsp;
         &nbsp;
-        <a href="dupers_waste.php"><button type="button" class="btn btn-default">Return</button></a><br><br><br>
+        <a href="dupers_waste.php"><button type="button" class="btn btn-default">RETURN</button></a><br><br><br>
       </div>
       </center>
     </div>
@@ -69,7 +69,7 @@ $Transactions=FindTransactionByID($pid);
             </tr>
             <tr>
               <th scope="row">Total Respect:</th>
-              <td colspan="2"><?php echo $Transactions[0]['score'];?></td>
+              <td colspan="2"><?php echo number_format($Transactions[0]['score']);?></td>
             </tr>
             <tr>
               <th scope="row">Total Connections:</th>
@@ -111,7 +111,7 @@ $Transactions=FindTransactionByID($pid);
     <div>
       &nbsp;
       &nbsp;
-      <a href="dupers_waste.php"><button type="button" class="btn btn-default">Return</button></a>
+      <a href="dupers_waste.php"><button type="button" class="btn btn-default">RETURN</button></a>
     </div>
     </center>
   </div>

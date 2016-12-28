@@ -26,10 +26,12 @@ $path .= "/ExilePHPAdminTools/includes/queries.php";
   <!-- Jumbotron - End -->   
 
   <!-- Datatable Start --> 
-        <div class="row" style="margin-left: 500px; margin-right: 500px;">
-          <div class=" table-responsive" id="table">
+
+          <div class="tableindex" id="table">
             <table class="table-bordered table table-striped table-condensed">
               <tbody>
+                <col width="200px" />
+                <col width="200px" />
                 <tr>
                   <th scope="row">Total Poptabs</p></th>
                   <td>$ <?php echo number_format($Tabs[0]['totaltabs']);?></td>
@@ -49,7 +51,8 @@ $path .= "/ExilePHPAdminTools/includes/queries.php";
               </tbody>
             </table>
           </div>
-        </div>
+
+
   <!-- Datatable End --> 		
 
       <div style="height: 10px;">&nbsp;</div>

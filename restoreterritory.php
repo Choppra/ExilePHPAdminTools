@@ -30,7 +30,7 @@ $Rows=RestoreTerritory($tid);
         </center>
         <br>
         <br>
-        <center><a href='deletedbases.php'><button type='button' class='btn btn-default'>Return</button></a></center>
+        <center><a href='deletedbases.php'><button type='button' class='btn btn-default'>RETURN</button></a></center>
         <div style="height: 10px;">&nbsp;</div>
     </body>
 </html>

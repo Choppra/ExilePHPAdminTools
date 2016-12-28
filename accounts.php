@@ -28,7 +28,7 @@ $Accounts=AllAccounts();
       </div>
     </div>
     </center>
-    <div class=" table-responsive" style="max-width:1200px;  margin:auto;">
+    <div class=" table-responsive" style="max-width:1400px;  margin:auto;">
       <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
         <thead>
           <tr>
@@ -40,7 +40,7 @@ $Accounts=AllAccounts();
             <th><center>First Connected</center></th>
             <th><center>Last Connected</center></th>
             <th><center>Last Disconnected</center></th>
-            <th><center>Total Connections</center></th>
+            <th><center>Connections</center></th>
             <th style="width:100px;"><center>Actions</center></th>
           </tr>
         </thead>

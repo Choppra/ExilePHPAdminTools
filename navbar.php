@@ -35,7 +35,7 @@ header("Location: " . $_SERVER["PHP_SELF"]);
                         <li><a href="dupers_waste.php">DUPERS CHECK (WASTE)</a></li>
                         <div class="divider"></div>
                         <li><a href="logs.php">SERVER LOGS</a></li>
-                        <li><a href="rcon.php">VIEW & REMOVE BANS</a></li>
+                        <!-- <li><a href="rcon.php">VIEW & REMOVE BANS</a></li> -->
                     </ul>
                 </li>
             </ul>

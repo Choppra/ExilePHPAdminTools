@@ -77,7 +77,7 @@ $Player=FindPlayerByID($pid);
   <div>
     &nbsp;
     &nbsp;
-    <a href="logs.php"><button type="button" class="btn btn-default">Return</button></a>
+    <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
   </div>
   </center>
 </div>

@@ -46,7 +46,7 @@ $Territories=TerritoriesNotRestored();
           foreach ($Territories as $Territory) {
           echo "<tr>";
             echo "<td><center>".$Territory['playername']."</center></td>";
-            echo "<td><center>".$Territory['owner_uid']."</center></td>";
+            echo "<td><center><a href='playerinfo.php?pid=".$Territory['owner_uid']."'>".$Territory['owner_uid']."</a></center</td>";
             echo "<td><center>".$Territory['id']."<center></td>";
             echo "<td><center>".$Territory['name']."<center></td>";
             echo "<td><center>".$Territory['created_at']."<center></td>";

@@ -50,7 +50,7 @@ $Accounts=FindDupersTrader();
             echo "<td><center><a href='searchlogs.php?pid=".$Account['playerid']."'>".$Account['playerid']."</a></center></td>";
             echo "<td><center>".$Account['item_sold']."<center></td>";
             echo "<td><center>".$Account['amount']."<center></td>";
-            echo "<td><center>".($Account['amount'] * $Account['poptabs'])."<center></td>";
+            echo "<td><center>".number_format($Account['amount'] * $Account['poptabs'])."<center></td>";
             }
             ?>
           </tbody>

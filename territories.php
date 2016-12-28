@@ -3,6 +3,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $Territories=Territories();
+$TerritoryCount = TerritoryCount();
 ?>
 <!DOCTYPE html>
 <?php include('header.php'); ?>
@@ -15,6 +16,7 @@ $Territories=Territories();
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
       <h1><center>TERRITORIES</center></h1>
       <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
+      <h2><center><?php echo "(".$TerritoryCount[0]['count'].")"; ?></center></h2>
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->

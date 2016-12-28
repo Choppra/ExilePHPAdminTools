@@ -7,7 +7,9 @@ $pid=$_GET['pid'];
 }else {
 $pid=trim($_POST['pid']);
 }
-$playerinfo=PlayerInfo($pid);
+$PlayerInfo = PlayerInfo($pid);
+$TerritoryPlayerInfo = TerritoryPlayerInfo($pid);
+$TerritoryInfobyID = TerritoryInfobyID($pid);
 ?>
 <!DOCTYPE html>
 <?php include('header.php'); ?>
@@ -19,79 +21,89 @@ $playerinfo=PlayerInfo($pid);
     <!-- Navigation Bar End -->
     <!--- JUMBOTRON START-->
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
-      <h1><center><?php echo $playerinfo[0]['playername'];?></center></h1>
+      <h1><center><?php echo $PlayerInfo[0]['name'];?></center></h1>
       <h3><center><?php echo $_SESSION['dbase'];?></center></h3>
     </div>
     <!--- JUMBOTRON END-->
     <div style="height: 10px;">&nbsp;</div>
     <div class="col-md-12">
       <div class="row" style="margin-left: 500px; margin-right: 500px;">
-        <div class=" table-responsive" id="table">
+        <h3> ACCOUNT INFORMATION </h3>
+        <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
           <table class="table-bordered table table-striped table-condensed">
             <tbody>
+            <col width="400px" />
               <tr>
-                <th scope="row">Player ID: </p></th>
-                <td><?php echo $playerinfo[0]['playerid'];?></td>
+                <th scope="row">Player ID </p></th>
+                <td><?php echo $PlayerInfo[0]['uid'];?></td>
               </tr>
               <tr>
-                <th scope="row">Clan: </p></th>
-                <td><?php echo $playerinfo[0]['clanname'];?></td>
+                <th scope="row">Respect </p></th>
+                <td><?php echo number_format($PlayerInfo[0]['score']);?></td>
               </tr>
               <tr>
-                <th scope="row">Clan ID: </p></th>
-                <td><?php echo $playerinfo[0]['clan_id'];?></td>
+                <th scope="row">Locker </p></th>
+                <td><?php echo number_format($PlayerInfo[0]['locker']);?></td>
+              </tr>
+               <tr>
+                <th scope="row">Total Money (w/Containers) </p></th>
+                <td><?php echo number_format($PlayerInfo[0]['locker']+$TerritoryInfobyID[0]['container_money']);?></td>
+              </tr>               
+              <tr>
+                <th scope="row">First Connection </p></th>
+                <td><?php echo $PlayerInfo[0]['first_connect_at'];?></td>
+              </tr> 
+              <tr>
+                <th scope="row">Last Connection </p></th>
+                <td><?php echo $PlayerInfo[0]['last_connect_at'];?></td>
+              </tr>     
+              <tr>
+                <th scope="row">Last Disconnect </p></th>
+                <td><?php echo $PlayerInfo[0]['last_disconnect_at'];?></td>
               </tr>
               <tr>
-                <th scope="row">Clan Leader: </p></th>
-                <td><a href=playerinfo.php?pid=""><?php echo $playerinfo[0]['clan_leader_uid'];?></a></td>
-              </tr>
-              <tr>
-                <th scope="row">Total Respect: </p></th>
-                <td><?php echo number_format($playerinfo[0]['respect'])?></td>
-              </tr>
-              <tr>
-                <th scope="row">Total Locker: </p></th>
-                <td>$ <?php echo number_format($playerinfo[0]['locker'])?></td>
-              </tr>
-              <tr>
-                <th scope="row">Total Poptabs: </p></th>
-                <td>$ <?php echo number_format(($playerinfo[0]['locker'])+($playerinfo[0]['container_money']));?></td>
-              </tr>
-              <tr>
-                <th scope="row">Total Connections: </p></th>
-                <td><?php echo $playerinfo[0]['total_connections'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Name: </p></th>
-                <td><?php echo $playerinfo[0]['territoryname'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Level: </p></th>
-                <td><?php echo $playerinfo[0]['level'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Radius: </p></th>
-                <td><?php echo $playerinfo[0]['level'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Last Paid: </p></th>
-                <td><?php echo $playerinfo[0]['last_paid_at'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Prootection Due: </p></th>
-                <td><?php echo $playerinfo[0]['ProtectionDue'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Construction Count: </p></th>
-                <td><?php echo $playerinfo[0]['construction_count'];?></td>
-              </tr>
-              <tr>
-                <th scope="row">Territory Container Count: </p></th>
-                <td><?php echo $playerinfo[0]['container_count'];?></td>
-              </tr>
+                <th scope="row">Total Connections</p></th>
+                <td><?php echo number_format($PlayerInfo[0]['total_connections']);?></td>
+              </tr>                                        
             </tbody>
           </table>
         </div>
+        <h3> TERRITORY INFORMATION </h3>
+        <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
+          <table class="table-bordered table table-striped table-condensed">
+            <tbody>
+                <col width="400px" />
+              <tr>
+                <th scope="row">Territory ID </p></th>
+                <td><?php echo $TerritoryPlayerInfo[0]['id'];?></td>
+              </tr>
+              <tr>
+                <th scope="row">Territory Name </p></th>
+                <td><?php echo $TerritoryPlayerInfo[0]['name'];?></td>
+              </tr>
+              <tr>
+                <th scope="row">Level: </p></th>
+                <td><?php echo $TerritoryPlayerInfo[0]['level'];?></td>
+              </tr>              
+              <tr>
+                <th scope="row">First Connection </p></th>
+                <td><?php echo $TerritoryPlayerInfo[0]['radius'];?></td>
+              </tr> 
+              <tr>
+                <th scope="row">Protection Due </p></th>
+                <td><?php echo $TerritoryPlayerInfo[0]['ProtectionDue'];?></td>
+              </tr>     
+              <tr>
+                <th scope="row">Total Objects </p></th>
+                <td><?php echo number_format($TerritoryInfobyID[0]['container_count']+$TerritoryInfobyID[0]['construction_count']);?></td>
+              </tr>
+              <tr>
+                <th scope="row">Total Container Money </p></th>
+                <td><?php echo number_format($TerritoryInfobyID[0]['container_money']);?></td>
+              </tr>                                        
+            </tbody>
+          </table>
+        </div>        
       </div>
     </div>
     <br>

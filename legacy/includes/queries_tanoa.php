@@ -1,13 +1,13 @@
 <?php
+    include_once 'condb_tanoa.php';
 
-   include_once 'condb.php';
 
     function TopTotalPoptabs(){
         $connect=connectdb();
         try {
             $sql="
-            SELECT name,c.account_uid, sum(c.money)as total_container_tabs,locker,total_connections,
-                DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at
+            SELECT
+            name,c.account_uid, sum(c.money)as total_container_tabs,locker,total_connections,last_connect_at
             FROM container c 
             inner join account a on c.account_uid = a.uid 
             where c.money != 0
@@ -26,9 +26,7 @@
     function TotalAccounts(){
         $connect=connectdb();
         try {
-            $sql="
-            SELECT COUNT(*) as totalaccounts FROM account WHERE account.last_connect_at >= DATE_ADD(CURDATE(), INTERVAL '-14' DAY)
-            ";
+            $sql="SELECT COUNT(*) as totalaccounts FROM account WHERE account.last_connect_at >= DATE_ADD(CURDATE(), INTERVAL '-14' DAY);";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $accounts = $stmt->fetchAll();
@@ -69,86 +67,12 @@
         }
     }
 
-    function TerritoryInfobyID($id){
-        $connect=connectdb();
-        try {
-            $sql="
-            SELECT count(class) as container_count,sum(money) as container_money,
-            (SELECT count(class)  FROM construction where account_uid = :id) as construction_count
-            FROM container where account_uid = :id
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->bindValue(":id",$id);
-            $stmt->execute();
-            $play = $stmt->fetchAll();
-            return $play;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-    function PlayerInfo($id){
-        $connect=connectdb();
-        try {
-            $sql="
-            SELECT uid,name,score,locker,DATE_FORMAT(first_connect_at,'%b %d, %Y - %h:%i %p') as first_connect_at, DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at, DATE_FORMAT(last_disconnect_at,'%b %d, %Y - %h:%i %p') as last_disconnect_at,total_connections from account where uid = :id
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->bindValue(":id",$id);
-            $stmt->execute();
-            $play = $stmt->fetchAll();
-            return $play;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-
-    function TerritoryPlayerInfo($id){
-        $connect=connectdb();
-        try {
-            $sql="
-            SELECT id, owner_uid, name, radius, level,  DATE_FORMAT(DATE_ADD(last_paid_at,INTERVAL 8 DAY),'%b %d, %Y - %h:%i %p') as ProtectionDue from territory where owner_uid = :id
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->bindValue(":id",$id);
-            $stmt->execute();
-            $play = $stmt->fetchAll();
-            return $play;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-
     function FindTransactionByID($id){
         $connect=connectdb();
         try {
             $sql="
             SELECT  
-            time_sold, name as playername, playerid, total_connections, score,locker, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity,soldvehicle, DATEDIFF(last_connect_at,first_connect_at) as days_on_server
-            FROM 
-            trader_recycle_log
-            inner join
-            account a ON trader_recycle_log.playerid = a.uid
-            WHERE trader_recycle_log.transactionid =:id
-            GROUP BY
-            item_sold, transactionid
-            ORDER BY quantity DESC
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->bindValue(":id",$id);
-            $stmt->execute();
-            $play = $stmt->fetchAll();
-            return $play;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-
-      function GetPlayerInfo($id){
-        $connect=connectdb();
-        try {
-            $sql="
-            SELECT  
-            time_sold, name as playername, playerid, total_connections, score,locker, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity,soldvehicle, DATEDIFF(last_connect_at,first_connect_at) as days_on_server
+            time_sold, name as playername, playerid, total_connections, score, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity,soldvehicle, DATEDIFF(last_connect_at,first_connect_at) as days_on_server
             FROM 
             trader_recycle_log
             inner join
@@ -179,12 +103,10 @@
             trader_recycle_log
             inner join
             account a ON trader_recycle_log.playerid = a.uid
-            WHERE item_sold NOT LIKE 'Exile_Item_JunkMetal'
+            Where poptabs > 10000
             GROUP BY
             item_sold, transactionid
-            HAVING count(item_sold) > 10
-            ORDER BY quantity DESC
-            ";
+            ORDER BY quantity DESC";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $accounts = $stmt->fetchAll();
@@ -201,7 +123,7 @@
             SELECT name as playername, playerid, item_sold, COUNT(*) as amount, poptabs
             FROM trader_log
             JOIN account a ON trader_log.playerid = a.uid
-            WHERE time_sold > NOW() - INTERVAL 7 DAY
+            WHERE time_sold > NOW() - INTERVAL 7 DAY 
             AND playerid <> ''
             AND (
             item_sold =    'Exile_Item_Codelock' 
@@ -232,13 +154,7 @@
     function AllAccounts(){
         $connect=connectdb();
         try {
-            $sql="
-            SELECT name,uid,score,locker,
-            DATE_FORMAT(first_connect_at,'%b %d, %Y - %h:%i %p') as first_connect_at,
-            DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at,
-            DATE_FORMAT(last_disconnect_at,'%b %d, %Y - %h:%i %p') as last_disconnect_at,
-            total_connections FROM account where last_connect_at >= (CURDATE() - INTERVAL 10 DAY ) ORDER BY name 
-            ";
+            $sql="SELECT name,uid,score,locker,first_connect_at,last_connect_at,last_disconnect_at,total_connections FROM account where last_connect_at >= (CURDATE() - INTERVAL 10 DAY ) ORDER BY name ";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $accounts = $stmt->fetchAll();
@@ -252,41 +168,41 @@
         $connect=connectdb();
         try {
             if ($date1=="All") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn
                 ORDER BY time";
             }elseif ($date1=="1") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 1 DAY
                 ORDER BY time";
             }elseif ($date1=="2") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 2 DAY
                 ORDER BY time";
             }elseif ($date1=="3") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 3 DAY
                 ORDER BY time";
             }elseif ($date1=="4") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 4 DAY
                 ORDER BY time";
             }elseif ($date1=="5") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 5 DAY
                 ORDER BY time";
             }elseif ($date1=="6") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 6 DAY
                 ORDER BY time";
             }elseif ($date1=="7") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 7 DAY
                 ORDER BY time";
@@ -301,36 +217,12 @@
         }
     }
 
-    
-
-    function TerritoryCount(){
-     $connect=connectdb();
-        try {
-            $sql="
-            SELECT count(name) as count from territory 
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->execute();
-            $tnr = $stmt->fetchAll();
-            return $tnr;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-
-
     function Territories(){
-     $connect=connectdb();
+ $connect=connectdb();
         try {
-            $sql="
-            SELECT a.name as playername,t.owner_uid,t.id, t.name,t.level,t.radius,
-            DATE_FORMAT(t.created_at,'%b %d, %Y - %h:%i %p') as created_at,
-            DATE_FORMAT(t.last_paid_at,'%b %d, %Y - %h:%i %p') as last_paid_at,
-            DATE_FORMAT(t.deleted_at,'%b %d, %Y - %h:%i %p') as deleted_at,
-            DATE_FORMAT(DATE_ADD(last_paid_at,INTERVAL 8 DAY),'%b %d, %Y - %h:%i %p') AS ProtectionDue
+            $sql="SELECT a.name as playername,t.owner_uid,t.id, t.name,t.level,t.radius,t.created_at,t.last_paid_at,t.deleted_at
             from territory t inner join account a ON t.owner_uid = a.uid
-            where deleted_at is null and flag_stolen !=1 order by name ASC
-            ";
+            where deleted_at is null and flag_stolen !=1 order by name ASC";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $tnr = $stmt->fetchAll();
@@ -344,12 +236,7 @@
         $name0="%".$name."%";
         $connect=connectdb();
         try {
-            $sql="
-            SELECT uid,name,
-            DATE_FORMAT(first_connect_at,'%b %d, %Y - %h:%i %p') as first_connect_at,
-            DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at,
-            total_connections
-            FROM account WHERE name LIKE :pname";
+            $sql="SELECT * FROM account WHERE name LIKE :pname";
             $stmt=$connect->prepare($sql);
             $stmt->bindValue(":pname",$name0);
             $stmt->execute();
@@ -446,52 +333,52 @@
         $connect=connectdb();
         try {
             if ($date0=="All") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn
                 ORDER BY time";
             }elseif ($date0=="1") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 1 DAY
                 ORDER BY time";
             }elseif ($date0=="2") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 2 DAY
                 ORDER BY time";
             }elseif ($date0=="3") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 3 DAY
                 ORDER BY time";
             }elseif ($date0=="4") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 4 DAY
                 ORDER BY time";
             }elseif ($date0=="5") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 5 DAY
                 ORDER BY time";
             }elseif ($date0=="6") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 6 DAY
                 ORDER BY time";
             }elseif ($date0=="7") {
-                $sql="SELECT DATE_FORMAT(time,'%b %d, %Y - %h:%i %p') as time,logentry FROM infistar_logs
+                $sql="SELECT time,logentry FROM infistar_logs
                 WHERE logentry LIKE :pid AND
                 logname=:logn AND
                 time >= DATE(NOW()) - INTERVAL 7 DAY
-                ORDER BY (time,'%m/%d/%Y %h:%i:%s') DESC";
+                ORDER BY time";
             }
             $stmt=$connect->prepare($sql);
             $stmt->bindValue(":pid",$pid0);
@@ -521,17 +408,9 @@
 function TerritoriesNotRestored(){
         $connect=connectdb();
         try {
-            $sql="
-            SELECT 
-            a.name as playername,
-            t.owner_uid,t.id,
-            t.name,
-            DATE_FORMAT(t.created_at,'%b %d, %Y - %h:%i %p') as created_at,
-            DATE_FORMAT(t.last_paid_at,'%b %d, %Y - %h:%i %p') as last_paid_at,
-            DATE_FORMAT(t.deleted_at,'%b %d, %Y - %h:%i %p') as deleted_at
+            $sql="SELECT a.name as playername,t.owner_uid,t.id, t.name, t.created_at,t.last_paid_at,t.deleted_at
             from territory t inner join account a ON t.owner_uid = a.uid
-            where deleted_at is not null and flag_stolen !=1 order by deleted_at DESC
-            ";
+            where deleted_at is not null and flag_stolen !=1 order by deleted_at DESC";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $tnr = $stmt->fetchAll();
@@ -544,15 +423,11 @@ function TerritoriesNotRestored(){
     function TerritoriesStolen(){
         $connect=connectdb();
         try {
-            $sql="
-            SELECT a.name as owner,b.uid as stealer_id, b.name as stealer, t.owner_uid,t.id, t.name, t.flag_stolen,t.flag_stolen_by_uid,
-            DATE_FORMAT(t.flag_stolen_at, '%b %d, %Y - %h:%i %p') as flag_stolen_at,
-            DATE_FORMAT(t.deleted_at,'%b %d, %Y - %h:%i %p') as deleted_at
+            $sql="SELECT a.name as owner,b.uid as stealer_id, b.name as stealer, t.owner_uid,t.id, t.name, t.flag_stolen,t.flag_stolen_by_uid,t.flag_stolen_at, t.deleted_at
             from territory t 
             inner join account a ON t.owner_uid = a.uid
             inner join account b on t.flag_stolen_by_uid = b.uid
-            where flag_stolen = 1 order by name ASC
-            ";
+            where flag_stolen = 1 order by name ASC";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $tnr = $stmt->fetchAll();
@@ -565,7 +440,7 @@ function TerritoriesNotRestored(){
     function RestoreTerritory($tid){
         $connect=connectdb();
         try {
-            $sql="UPDATE territory SET deleted_at = NULL, last_paid_at = NOW(), flag_stolen = 0, flag_stolen_by_uid = NULL, flag_stolen_at = NULL  WHERE id=:tid";
+            $sql="UPDATE territory SET deleted_at = NULL, last_paid_at = NOW(), flag_stolen = 1, flag_stolen_by_uid = NULL, flag_stolen_at = NULL  WHERE id=:tid";
             $stmt=$connect->prepare($sql);
             $stmt->bindValue(":tid",$tid);
             $stmt->execute();

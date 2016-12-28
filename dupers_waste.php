@@ -55,7 +55,7 @@ $Accounts=FindDupersWaste();
             echo "<td><center>".$Account['vehicleclass']."<center></td>";
             echo "<td><center>".$Account['item_sold']."<center></td>";
             echo "<td><center>".$Account['quantity']."<center></td>";
-            echo "<td><center>".$Account['poptabs']."<center></td>";
+            echo "<td><center>".number_format($Account['poptabs'])."<center></td>";
             echo "<td><center><a href='dupers_waste_transaction.php?pid=".$Account['transactionid']."'>".$Account['transactionid']."</a></center></td>";
             }
             ?>

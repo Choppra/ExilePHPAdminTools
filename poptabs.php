@@ -43,8 +43,8 @@ $Tabs=TopTotalPoptabs();
           foreach ($Tabs as $tab) {
           echo "<tr>";
             echo "<td><center>".$tab['name']."</center></td>";
-            echo "<td><center>".$tab['account_uid']."<center></td>";
-            echo "<td><center>$".number_format($tab['total_pop_tabs'])."<center></td>";
+            echo "<td><center><a href='playerinfo.php?pid=".$tab['account_uid']."'>".$tab['account_uid']."</a></center</td>";
+            echo "<td><center>$".number_format(($tab['total_container_tabs'])+($tab['locker']))."<center></td>";
             echo "<td><center>".$tab['last_connect_at']."<center></td>";
             echo "<td><center>".$tab['total_connections']."<center></td>";
           echo "</tr>";

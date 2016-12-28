@@ -13,6 +13,13 @@ $logentries=LogEntriesByLogname($range,$logn);
   table { table-layout: fixed; }
   table td { word-wrap: break-word; }
   </style>
+  <script>
+  $(document).ready(function(){
+  $(function(){
+  $("#tabla").tablesorter();
+  });
+  });
+  </script>
 </head>
 <html>
   <body>
@@ -68,7 +75,7 @@ $logentries=LogEntriesByLogname($range,$logn);
       <div>
         &nbsp;
         &nbsp;
-        <a href="logs.php"><button type="button" class="btn btn-default">Return</button></a>
+        <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
       </div>
       </center>
     </div>
