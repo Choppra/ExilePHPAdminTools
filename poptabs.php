@@ -58,5 +58,5 @@ $Tabs=TopTotalPoptabs();
   </body>
 </html>
 <script type="text/javascript">
-  $( '#table' ).searchable();
+$( '#table' ).searchable();
 </script>

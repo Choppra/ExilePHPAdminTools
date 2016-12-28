@@ -32,7 +32,7 @@ $Accounts=AllAccounts();
       <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
         <thead>
           <tr>
-            <th style="width:10px;"><center>Check</center></th>
+ter
             <th><center>Player Name</center></th>
             <th><center>Player ID</center></th>
             <th style="width:100px;"><center>Score</center></th>

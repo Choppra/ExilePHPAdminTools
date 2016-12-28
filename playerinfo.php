@@ -32,7 +32,7 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
         <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
           <table class="table-bordered table table-striped table-condensed">
             <tbody>
-            <col width="400px" />
+              <col width="400px" />
               <tr>
                 <th scope="row">Player ID </p></th>
                 <td><?php echo $PlayerInfo[0]['uid'];?></td>
@@ -45,18 +45,18 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
                 <th scope="row">Locker </p></th>
                 <td><?php echo number_format($PlayerInfo[0]['locker']);?></td>
               </tr>
-               <tr>
+              <tr>
                 <th scope="row">Total Money (w/Containers) </p></th>
                 <td><?php echo number_format($PlayerInfo[0]['locker']+$TerritoryInfobyID[0]['container_money']);?></td>
-              </tr>               
+              </tr>
               <tr>
                 <th scope="row">First Connection </p></th>
                 <td><?php echo $PlayerInfo[0]['first_connect_at'];?></td>
-              </tr> 
+              </tr>
               <tr>
                 <th scope="row">Last Connection </p></th>
                 <td><?php echo $PlayerInfo[0]['last_connect_at'];?></td>
-              </tr>     
+              </tr>
               <tr>
                 <th scope="row">Last Disconnect </p></th>
                 <td><?php echo $PlayerInfo[0]['last_disconnect_at'];?></td>
@@ -64,7 +64,7 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
               <tr>
                 <th scope="row">Total Connections</p></th>
                 <td><?php echo number_format($PlayerInfo[0]['total_connections']);?></td>
-              </tr>                                        
+              </tr>
             </tbody>
           </table>
         </div>
@@ -72,7 +72,7 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
         <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
           <table class="table-bordered table table-striped table-condensed">
             <tbody>
-                <col width="400px" />
+              <col width="400px" />
               <tr>
                 <th scope="row">Territory ID </p></th>
                 <td><?php echo $TerritoryPlayerInfo[0]['id'];?></td>
@@ -84,15 +84,15 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
               <tr>
                 <th scope="row">Level: </p></th>
                 <td><?php echo $TerritoryPlayerInfo[0]['level'];?></td>
-              </tr>              
+              </tr>
               <tr>
                 <th scope="row">First Connection </p></th>
                 <td><?php echo $TerritoryPlayerInfo[0]['radius'];?></td>
-              </tr> 
+              </tr>
               <tr>
                 <th scope="row">Protection Due </p></th>
                 <td><?php echo $TerritoryPlayerInfo[0]['ProtectionDue'];?></td>
-              </tr>     
+              </tr>
               <tr>
                 <th scope="row">Total Objects </p></th>
                 <td><?php echo number_format($TerritoryInfobyID[0]['container_count']+$TerritoryInfobyID[0]['construction_count']);?></td>
@@ -100,10 +100,10 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
               <tr>
                 <th scope="row">Total Container Money </p></th>
                 <td><?php echo number_format($TerritoryInfobyID[0]['container_money']);?></td>
-              </tr>                                        
+              </tr>
             </tbody>
           </table>
-        </div>        
+        </div>
       </div>
     </div>
     <br>

@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/ExilePHPAdminTools/includes/queries.php";
+$path .= "/ExilePHPAdminTools/includes/queries.php";
 include_once ($path);
 $p_name=trim($_POST['pname']);
 if ($p_name!="") {
@@ -53,18 +53,17 @@ $players=array();
         </tbody>
       </table>
     </div>
-
-  <div class="col-md-12">
-    <center>
-    <div>
-<br>
-<a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
+    <div class="col-md-12">
+      <center>
+      <div>
+        <br>
+        <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
+      </div>
+      </center>
     </div>
-    </center>
-  </div>
-  <!-- Datatable End -->
-  <div style="height: 10px;">&nbsp;</div>
-</body>
+    <!-- Datatable End -->
+    <div style="height: 10px;">&nbsp;</div>
+  </body>
 </html>
 <script type="text/javascript">
 $( '#table' ).searchable();

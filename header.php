@@ -10,11 +10,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.1/js/jquery.tablesorter.min.js"></script>
 	<style type="text/css">
 		.tableindex {
-    border-radius: 5px;
-    width: 50%;
-    margin: 0px auto;
-    float: none;
-}
+	border-radius: 5px;
+	width: 50%;
+	margin: 0px auto;
+	float: none;
+	}
 	</style>
 	<title></title>
 </head>
