@@ -21,33 +21,35 @@ $Accounts=TotalAccounts();
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
-    <!-- Datatable Start -->
-    <div class="tableindex" id="table">
-      <table class="table-bordered table table-striped table-condensed">
+   <!-- Datatable Start -->
+        <div class=" table-responsive" style="max-width:800px;  margin:auto;">
+      <table class="table borderless "" id="table" style="margin: auto;">
+        <thead>
+          <tr>
+            <th style="width:250px;"><center><h3>$ <?php echo number_format($Tabs[0]['totaltabs']);?></h3></center></th>
+            <th style="width:250px;"><center><h3><?php echo $Server[0]['count_construction'];?></a></h3></center></th>
+            <th style="width:250px;"><center><h3><?php echo $Server[0]['count_container'];?></h3></center></th>
+            <th style="width:250px;"><center><h3><?php echo (($Server[0]['count_container'])+($Server[0]['count_construction']));?></h3></center></th>
+          </tr>
+        </thead>
         <tbody>
-          <col width="200px" />
-          <col width="200px" />
-          <tr>
-            <th scope="row">Total Poptabs</p></th>
-            <td>$ <?php echo number_format($Tabs[0]['totaltabs']);?></td>
-          </tr>
-          <tr>
-            <th scope="row">Construction</th>
-            <td><?php echo $Server[0]['count_construction'];?></td>
-          </tr>
-          <tr>
-            <th scope="row">Containers</p></th>
-            <td><?php echo $Server[0]['count_container'];?></td>
-          </tr>
-          <tr>
-            <th scope="row">Total Objects</p></th>
-            <td><?php echo (($Server[0]['count_container'])+($Server[0]['count_construction']));?></td>
-          </tr>
+          <th style="width:250px;"><center><h6>TOTAL POPTABS</h6></center></th>
+          <th style="width:250px;"><center><h6>TOTAL CONSTRUCTION</h6></center></th>
+          <th style="width:250px;"><center><h6>TOTAL CONTAINER</h6></center></th>
+          <th style="width:250px;"><center><h6>TOTAL OBJECTS</h6></center></th>
         </tbody>
       </table>
     </div>
     <!-- Datatable End -->
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">

@@ -36,9 +36,11 @@ $Player=FindPlayerByID($pid);
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
     <center>
-    <div>
-      <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a><br>
-    </div>
+  <div>
+    &nbsp;
+    &nbsp;
+    <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
+  </div>
     </center>
     <!-- Datatable Start -->
   </div><br>
@@ -48,10 +50,10 @@ $Player=FindPlayerByID($pid);
       <?php
       foreach ($Logns as $Logn) {
       echo "<h3 style='margin-bottom:0px;'><b>".$Logn['logname']."</b></h3>";
-      echo "<table class=' table-bordered table table-striped' id='tabla' style='margin: auto;'>";
+      echo "<table class=' table-bordered table table-hover' id='tabla' style='margin: auto;'>";
         echo "<thead style='background-color: #375A7F;'>";
           echo "<tr>";
-            echo "<th style='width:150px;'><center>DATE</center></th>";
+            echo "<th style='width:175px;'><center>DATE</center></th>";
             echo "<th><center>LOGENTRY</center></th>";
           echo "</tr>";
         echo "</thead>";
@@ -82,7 +84,15 @@ $Player=FindPlayerByID($pid);
   </center>
 </div>
 <!-- Datatable End -->
-<div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
 </body>
 </html>
 <script type="text/javascript">

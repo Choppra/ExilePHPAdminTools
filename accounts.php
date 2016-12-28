@@ -8,7 +8,6 @@ $Accounts=AllAccounts();
 <?php include('header.php'); ?>
 <html>
   <body>
-
     <!-- Navigation Bar Start -->
     <?php $search = "False"; ?> <!-- True or False -->
     <?php include('navbar.php'); ?>
@@ -29,10 +28,10 @@ $Accounts=AllAccounts();
     </div>
     </center>
     <div class=" table-responsive" style="max-width:1400px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
-        <thead>
+      <table class=" table-bordered table table-hover" id="table" style="margin: auto;">
+        <thead style='background-color: #375A7F;'>
           <tr>
-ter
+            <th style="width:10px;"><center>Check</center></th>
             <th><center>Player Name</center></th>
             <th><center>Player ID</center></th>
             <th style="width:100px;"><center>Score</center></th>
@@ -87,14 +86,19 @@ ter
           ?>
         </tbody>
       </table>
-    </div>
-    
+    </div> 
     <!-- Datatable End -->
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">
 $( '#table' ).searchable();
 </script>
-
-

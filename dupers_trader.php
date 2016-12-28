@@ -14,7 +14,7 @@ $Accounts=FindDupersTrader();
     <!-- Navigation Bar End -->
     <!-- Jumbotron - Start -->
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
-      <h1><center>DUPERS CHECK</center></h1>
+      <h1><center>TRADER CHECK</center></h1>
       <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
     </div>
     <div style="height: 10px;">&nbsp;</div>
@@ -28,8 +28,8 @@ $Accounts=FindDupersTrader();
     </center>
     <!-- Datatable Start -->
     <div class=" table-responsive" style="max-width:1500px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
-        <thead>
+      <table class=" table-bordered table table-hover" id="table" style="margin: auto;">
+        <thead style='background-color: #375A7F;'>
           <tr>
             <th><center>Player Name</center></th>
             <th><center>Player ID</center></th>
@@ -57,7 +57,15 @@ $Accounts=FindDupersTrader();
         </table>
       </div>
       <!-- Datatable End -->
-      <div style="height: 10px;">&nbsp;</div>
+      <!-- Footer Start -->
+      <div style="height: 100px;">&nbsp;</div>
+      <footer id="footer" class="container footer">
+        <div class="copyright">
+          <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+          <div style="height: 10px;">&nbsp;</div>
+        </div>
+      </footer>
+      <!-- Footer End -->
     </body>
   </html>
   <script type="text/javascript">

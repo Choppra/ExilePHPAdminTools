@@ -28,8 +28,8 @@ $Tabs=TopTotalPoptabs();
     </center>
     <!-- Datatable Start -->
     <div class=" table-responsive" style="max-width:1200px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
-        <thead>
+      <table class=" table-bordered table table-hover" id="table" style="margin: auto;">
+        <thead style='background-color: #375A7F;'>
           <tr>
             <th><center>Player Name</center></th>
             <th><center>Player ID</center></th>
@@ -44,7 +44,7 @@ $Tabs=TopTotalPoptabs();
           echo "<tr>";
             echo "<td><center>".$tab['name']."</center></td>";
             echo "<td><center><a href='playerinfo.php?pid=".$tab['account_uid']."'>".$tab['account_uid']."</a></center</td>";
-            echo "<td><center>$".number_format(($tab['total_container_tabs'])+($tab['locker']))."<center></td>";
+            echo "<td><center>".number_format($tab['totalpoptabs'])."<center></td>";
             echo "<td><center>".$tab['last_connect_at']."<center></td>";
             echo "<td><center>".$tab['total_connections']."<center></td>";
           echo "</tr>";
@@ -54,7 +54,15 @@ $Tabs=TopTotalPoptabs();
       </table>
     </div>
     <!-- Datatable End -->
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">

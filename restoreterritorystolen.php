@@ -31,7 +31,14 @@ $Rows=RestoreTerritory($tid);
         <br>
         <br>
         <center><a href='stolenbases.php'><button type='button' class='btn btn-default'>RETURN</button></a></center>
-        
-        <div style="height: 10px;">&nbsp;</div>
+        <!-- Footer Start -->
+        <div style="height: 100px;">&nbsp;</div>
+        <footer id="footer" class="container footer">
+            <div class="copyright">
+                <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+                <div style="height: 10px;">&nbsp;</div>
+            </div>
+        </footer>
+        <!-- Footer End -->
     </body>
 </html>

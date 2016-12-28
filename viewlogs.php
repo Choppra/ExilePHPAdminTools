@@ -32,8 +32,8 @@ $logentries=LogEntriesByLogname($range,$logn);
       <h1><center>SERVER INFORMATION</center></h1>
       <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
       <div id='ajax_loader' style="position: fixed; left: 50%; top: 50%; display: none;">
-    <img src="themes/img/ajax-loader.gif"></img>
-</div>
+        <img src="themes/img/ajax-loader.gif"></img>
+      </div>
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
@@ -49,7 +49,7 @@ $logentries=LogEntriesByLogname($range,$logn);
       <div class=" table-responsive" margin:auto;">
         <?php
         echo "<h3 style='margin-bottom:0px;'><b>".$logn."</b></h3>";
-        echo "<table class=' table-bordered table table-striped' id='tabla' style='margin: auto;'>";
+        echo "<table class=' table-bordered table table-hover' id='tabla' style='margin: auto;'>";
           echo "<thead style='background-color: #375A7F;'>";
             echo "<tr>";
               echo "<th style='width:150px;'><center>DATE</center></th>";
@@ -80,9 +80,17 @@ $logentries=LogEntriesByLogname($range,$logn);
       </center>
     </div>
     <!-- Datatable End -->
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">
-  $( '#table' ).searchable();
+$( '#table' ).searchable();
 </script>

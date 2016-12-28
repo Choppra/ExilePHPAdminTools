@@ -6,13 +6,19 @@
         $connect=connectdb();
         try {
             $sql="
-            SELECT name,c.account_uid, sum(c.money)as total_container_tabs,locker,total_connections,
-                DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at
+            SELECT
+                name,
+                c.account_uid,
+                sum(c.money)as total_container_tabs,
+                locker,
+                total_connections,
+                (locker + sum(c.money)) as totalpoptabs,
+            DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at
             FROM container c 
             inner join account a on c.account_uid = a.uid 
             where c.money != 0
             group by account_uid
-            ORDER BY total_container_tabs DESC limit 20
+            ORDER BY totalpoptabs DESC limit 50
             ";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
@@ -174,7 +180,7 @@
         try {
             $sql="
             SELECT  
-            time_sold, name as playername, playerid, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity
+            DATE_FORMAT(time_sold,'%b %d, %Y - %h:%i %p') as time_sold, name as playername, playerid, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity
             FROM 
             trader_recycle_log
             inner join

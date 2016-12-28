@@ -6,6 +6,15 @@ $Accounts=FindDupersWaste();
 ?>
 <!DOCTYPE html>
 <?php include('header.php'); ?>
+<head>
+  <script>
+  $(document).ready(function(){
+  $(function(){
+  $("#tabla").tablesorter();
+  });
+  });
+  </script>
+</head>
 <html>
   <body>
     <!-- Navigation Bar Start -->
@@ -28,8 +37,8 @@ $Accounts=FindDupersWaste();
     </center>
     <!-- Datatable Start -->
     <div class=" table-responsive" style="max-width:1500px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="tabla" style="margin: auto;">
-        <thead>
+      <table class=" table-bordered table table-hover" id="tabla" style="margin: auto;">
+        <thead style='background-color: #375A7F;'>
           <tr>
             <th><center>Date</center></th>
             <th><center>PlayerName</center></th>
@@ -63,9 +72,17 @@ $Accounts=FindDupersWaste();
         </table>
       </div>
       <!-- Datatable End -->
-      <div style="height: 10px;">&nbsp;</div>
+      <!-- Footer Start -->
+      <div style="height: 100px;">&nbsp;</div>
+      <footer id="footer" class="container footer">
+        <div class="copyright">
+          <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+          <div style="height: 10px;">&nbsp;</div>
+        </div>
+      </footer>
+      <!-- Footer End -->
     </body>
   </html>
   <script type="text/javascript">
-  $( '#table' ).searchable();
+  $( '#tabla' ).searchable();
   </script>

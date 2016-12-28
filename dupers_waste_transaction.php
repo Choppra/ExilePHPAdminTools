@@ -27,8 +27,6 @@ $Transactions=FindTransactionByID($pid);
     <div class="col-md-12">
       <center>
       <div>
-        &nbsp;
-        &nbsp;
         <a href="dupers_waste.php"><button type="button" class="btn btn-default">RETURN</button></a><br><br><br>
       </div>
       </center>
@@ -109,8 +107,6 @@ $Transactions=FindTransactionByID($pid);
   <div class="col-md-12">
     <center>
     <div>
-      &nbsp;
-      &nbsp;
       <a href="dupers_waste.php"><button type="button" class="btn btn-default">RETURN</button></a>
     </div>
     </center>
@@ -119,7 +115,15 @@ $Transactions=FindTransactionByID($pid);
 </div>
 </body>
 <!-- Datatable End -->
+<!-- Footer Start -->
+<div style="height: 100px;">&nbsp;</div>
+<footer id="footer" class="container footer">
+<div class="copyright">
+<center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
 <div style="height: 10px;">&nbsp;</div>
+</div>
+</footer>
+<!-- Footer End -->
 </body>
 </html>
 <script type="text/javascript">

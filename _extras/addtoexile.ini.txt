@@ -1,9 +1,0 @@
-[updateTraderRecycleLog]
-SQL1_1 = INSERT INTO trader_recycle_log SET playerid = ?, item_sold = ?, poptabs = ?, respect = ?, vehicleclass = ?, transactionid = ?, soldvehicle = ?
-Number of Inputs = 7
-SQL1_INPUTS = 1,2,3,4,5,6,7
-
-[updateTraderLog]
-SQL1_1 = INSERT INTO trader_log SET playerid = ?, item_sold = ?, poptabs = ?, respect = ?
-Number of Inputs = 4
-SQL1_INPUTS = 1,2,3,4

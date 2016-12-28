@@ -27,14 +27,14 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
     <!--- JUMBOTRON END-->
     <div style="height: 10px;">&nbsp;</div>
     <div class="col-md-12">
-      <div class="row" style="margin-left: 500px; margin-right: 500px;">
-        <h3> ACCOUNT INFORMATION </h3>
+      <div class="row" style="margin-left: 600px; margin-right: 600px;">
+        <h3 style='color: #375A7F;'> ACCOUNT INFORMATION </h3>
         <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
-          <table class="table-bordered table table-striped table-condensed">
+          <table class="table-bordered table table-hover table-condensed">
             <tbody>
-              <col width="400px" />
+              <col width="250px" />
               <tr>
-                <th scope="row">Player ID </p></th>
+                <th scope="row" >Player ID </p></th>
                 <td><?php echo $PlayerInfo[0]['uid'];?></td>
               </tr>
               <tr>
@@ -68,11 +68,11 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
             </tbody>
           </table>
         </div>
-        <h3> TERRITORY INFORMATION </h3>
+        <h3 style='color: #375A7F;'> TERRITORY INFORMATION </h3>
         <div class="table-responsive" id="table" style="maselecx-width:1200px; min-width:500px;" >
-          <table class="table-bordered table table-striped table-condensed">
+          <table class="table-bordered table table-hover table-condensed">
             <tbody>
-              <col width="400px" />
+              <col width="250px" />
               <tr>
                 <th scope="row">Territory ID </p></th>
                 <td><?php echo $TerritoryPlayerInfo[0]['id'];?></td>
@@ -110,17 +110,22 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
     <div class="col-md-12">
       <center>
       <div>
-        &nbsp;
-        &nbsp;
         <a href="accounts.php"><button type="button" class="btn btn-default">RETURN</button></a>
       </div>
       </center>
     </div>
   </div>
 </div>
-</body>
 <!-- Datatable End -->
-<div style="height: 10px;">&nbsp;</div>
+<!-- Footer Start -->
+<div style="height: 100px;">&nbsp;</div>
+<footer id="footer" class="container footer">
+<div class="copyright">
+  <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+  <div style="height: 10px;">&nbsp;</div>
+</div>
+</footer>
+<!-- Footer End -->
 </body>
 </html>
 <script type="text/javascript">

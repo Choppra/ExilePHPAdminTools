@@ -28,7 +28,7 @@ $players=array();
     <!-- Datatable Start -->
     <div style="height: 10px;">&nbsp;</div>
     <div class=" table-responsive" style="max-width:1200px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="tabla" style="margin: auto;">
+      <table class=" table-bordered table table-hover" id="tabla" style="margin: auto;">
         <thead>
           <tr>
             <th><center>Player ID</center></th>
@@ -62,7 +62,15 @@ $players=array();
       </center>
     </div>
     <!-- Datatable End -->
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">

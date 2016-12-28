@@ -29,7 +29,7 @@ $TerritoryCount = TerritoryCount();
     </div>
     </center>
     <div class=" table-responsive" style="max-width:1400px;  margin:auto;">
-      <table class=" table-bordered table table-hover table-striped" id="table" style="margin: auto;">
+      <table class=" table-bordered table table-hover" id="table" style="margin: auto;">
         <thead>
           <tr>
             <th><center>Territory ID</center></th>
@@ -64,7 +64,15 @@ $TerritoryCount = TerritoryCount();
     <br>
     <br>
     <center><a href='stolenbases.php'><button type='button' class='btn btn-default'>RETURN</button></a></center>
-    <div style="height: 10px;">&nbsp;</div>
+    <!-- Footer Start -->
+    <div style="height: 100px;">&nbsp;</div>
+    <footer id="footer" class="container footer">
+      <div class="copyright">
+        <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+        <div style="height: 10px;">&nbsp;</div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </body>
 </html>
 <script type="text/javascript">
