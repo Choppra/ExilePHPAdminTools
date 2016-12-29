@@ -8,7 +8,7 @@ I have no formal programming background.  This project originally started as a s
 * Web server knowledge (how to set up, etc)
 
 # Support
-I will not provide support ANYWHERE except on the github page dedictaed to this project.  If you have a suggestion or issue, please submit an issue on github.
+I will not provide support ANYWHERE except on the github page dedicated to this project.  If you have a suggestion or issue, please submit an issue on github.
 
 # Notes
 I have this setup for use with 3 servers.  You will need to modify condb.php and navbar.php.  I will not provide support on how to edit these files.  It should be self explanitory.
