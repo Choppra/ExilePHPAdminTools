@@ -129,7 +129,7 @@
         try {
             $sql="
             SELECT  
-            time_sold, name as playername, playerid, total_connections, score,locker, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity,soldvehicle, DATEDIFF(last_connect_at,first_connect_at) as days_on_server
+            DATE_FORMAT(time_sold,'%b %d, %Y - %h:%i %p') as time_sold, name as playername, playerid, total_connections, score,locker, item_sold, vehicleclass, playerid , transactionid, poptabs, count(item_sold) as quantity,soldvehicle, DATEDIFF(last_connect_at,first_connect_at) as days_on_server
             FROM 
             trader_recycle_log
             inner join
@@ -204,7 +204,7 @@
         $connect=connectdb();
         try {
             $sql="
-            SELECT name as playername, playerid, item_sold, COUNT(*) as amount, poptabs
+             SELECT name as playername, playerid, item_sold, COUNT(*) as amount, poptabs, DATE_FORMAT(time_sold,'%b %d, %Y - %h:%i %p') as time_sold
             FROM trader_log
             JOIN account a ON trader_log.playerid = a.uid
             WHERE time_sold > NOW() - INTERVAL 7 DAY
@@ -224,7 +224,8 @@
             OR item_sold like '%_Range_Mag'
             )
             GROUP BY playerid,item_sold
-            ORDER BY COUNT(*) DESC";
+            ORDER BY COUNT(*) DESC
+            ";
             $stmt=$connect->prepare($sql);
             $stmt->execute();
             $accounts = $stmt->fetchAll();

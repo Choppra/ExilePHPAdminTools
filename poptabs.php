@@ -6,6 +6,15 @@ $Tabs=TopTotalPoptabs();
 ?>
 <!DOCTYPE html>
 <?php include('header.php'); ?>
+<head>
+  <script>
+  $(document).ready(function(){
+  $(function(){
+  $("#table").tablesorter();
+  });
+  });
+  </script>
+</head>
 <html>
   <body>
     <!-- Navigation Bar Start -->

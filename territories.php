@@ -30,7 +30,7 @@ $TerritoryCount = TerritoryCount();
     </center>
     <div class=" table-responsive" style="max-width:1400px;  margin:auto;">
       <table class=" table-bordered table table-hover" id="table" style="margin: auto;">
-        <thead>
+        <thead style='background-color: #375A7F;'>
           <tr>
             <th><center>Territory ID</center></th>
             <th><center>Territory Name</center></th>

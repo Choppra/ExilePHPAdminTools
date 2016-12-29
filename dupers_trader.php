@@ -36,6 +36,7 @@ $Accounts=FindDupersTrader();
             <th><center>Item Sold</center></th>
             <th><center>Quantity</center></th>
             <th><center>Poptabs Earned</center></th>
+            <th><center>Date</center></th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +52,7 @@ $Accounts=FindDupersTrader();
             echo "<td><center>".$Account['item_sold']."<center></td>";
             echo "<td><center>".$Account['amount']."<center></td>";
             echo "<td><center>".number_format($Account['amount'] * $Account['poptabs'])."<center></td>";
+            echo "<td><center>".$Account['time_sold']."<center></td>";
             }
             ?>
           </tbody>
