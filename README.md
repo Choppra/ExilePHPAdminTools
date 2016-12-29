@@ -101,4 +101,4 @@ DELETE FROM exile_tanoa.trader_recycle_log WHERE exile_tanoa.trader_recycle_log.
 ![](http://i.imgur.com/70B57y6.png)
 ![](http://i.imgur.com/BAIo64r.png)
 ![](http://i.imgur.com/1BGMQQJ.png)
-![](http://i.imgur.com/IEVshcg.png)
+![](http://i.imgur.com/PycYMfS.png)
