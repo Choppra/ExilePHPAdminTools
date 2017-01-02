@@ -28,17 +28,15 @@ $Player=FindPlayerByID($pid);
     <!-- Jumbotron - Start -->
     <div class="jumbotron" style="padding-top:10px; margin-top:-21px; ">
       <h1><center>SEARCH LOGS</center></h1>
-      <h2><center><?php echo $_SESSION['dbase'];?></center></h2>
-      <h3 style='margin-top:5px; margin-bottom: 10px;'><b><center><?php echo $Player[0]['name']; ?> (<?php echo $Player[0]['uid']; ?>)<br></center></b></h3>
-      <h3 style='margin-top:5px; margin-bottom: 10px;'><b><center><?php echo $range; ?> Day(s)<br></center></b></h3>
+       <h3 style='margin-top:5px; margin-bottom: 10px;'><b><center><?php echo $range; ?> Day(s)<br></center></b></h3><br>
+      <h3 style='margin-top:5px; margin-bottom: 10px;'><b><center><?php echo $Player[0]['name']; ?><br><?php echo "<td><center><a href='playerinfo.php?pid=".$Player[0]['uid']."'>".$Player[0]['uid']."</a></center</td>"; ?><br></center></b></h3>
+            <h2><center><?php echo $_SESSION['dbase'];?></center></h2>   
       
     </div>
     <div style="height: 10px;">&nbsp;</div>
     <!-- Jumbotron - End -->
     <center>
   <div>
-    &nbsp;
-    &nbsp;
     <a href="logs.php"><button type="button" class="btn btn-default">RETURN</button></a>
   </div>
     </center>

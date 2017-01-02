@@ -25,6 +25,34 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
       <h3><center><?php echo $_SESSION['dbase'];?></center></h3>
     </div>
     <!--- JUMBOTRON END-->
+    <form action="searchlogs.php" method="post">
+      <div class="row">
+        <div class="col-md-14">
+          <center>
+          <div class="input-group input-group-md col-md-2">
+            <select name="days" class="form-control" required>
+              <option value="" selected="selected" disabled>Select Range..</option>
+              <option value="All">All days</option>
+              <option value="1">1 day</option>
+              <option value="2">2 days</option>
+              <option value="3">3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+              <option value="6">6 days</option>
+              <option value="7">1 week</option>
+            </select>
+            <input name="pid" type="hidden" class="form-control" value=<?php echo $PlayerInfo[0]['uid'];?>>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" name="sea2">VIEW LOGS</button>
+            </span>
+          </div>
+          <br>
+          <div class="input-group input-group-md col-xs-10 col-sm-4 col-md-4">
+          </div>
+          </center>
+        </div>
+      </div>
+    </form>
     <div style="height: 10px;">&nbsp;</div>
     <div class="col-md-12">
       <div class="row" style="margin-left: 600px; margin-right: 600px;">
@@ -36,6 +64,10 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
               <tr>
                 <th scope="row" >Player ID </p></th>
                 <td><?php echo $PlayerInfo[0]['uid'];?></td>
+              </tr>
+              <tr>
+                <th scope="row" >Clan ID </p></th>
+                <?php echo "<td><a href='clanid.php?pid=".$PlayerInfo[0]['clan_id']."'>".$PlayerInfo[0]['clan_id']."</a></td>"; ?>
               </tr>
               <tr>
                 <th scope="row">Respect </p></th>
@@ -120,10 +152,10 @@ $TerritoryInfobyID = TerritoryInfobyID($pid);
 <!-- Footer Start -->
 <div style="height: 100px;">&nbsp;</div>
 <footer id="footer" class="container footer">
-<div class="copyright">
-  <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
-  <div style="height: 10px;">&nbsp;</div>
-</div>
+  <div class="copyright">
+    <center>Copyright © 2017 <a href="http://www.atdgaming.com">ATD Gaming</a></center>
+    <div style="height: 10px;">&nbsp;</div>
+  </div>
 </footer>
 <!-- Footer End -->
 </body>
