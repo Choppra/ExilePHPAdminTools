@@ -2,23 +2,6 @@
 
    include_once 'condb.php';
 
-
-    function ContainerTest(){
-        $connect=connectdb();
-        try {
-            $sql="
-           SELECT id,cargo_weapons from container where territory_id = 113 and id = 2237;
-            ";
-            $stmt=$connect->prepare($sql);
-            $stmt->execute();
-            $accounts = $stmt->fetchAll();
-            return $accounts;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-
-
     function TopTotalPoptabs(){
         $connect=connectdb();
         try {
