@@ -2,6 +2,23 @@
 
    include_once 'condb.php';
 
+
+    function ContainerTest(){
+        $connect=connectdb();
+        try {
+            $sql="
+           SELECT id,cargo_weapons from container where territory_id = 113 and id = 2237;
+            ";
+            $stmt=$connect->prepare($sql);
+            $stmt->execute();
+            $accounts = $stmt->fetchAll();
+            return $accounts;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
     function TopTotalPoptabs(){
         $connect=connectdb();
         try {
@@ -92,11 +109,59 @@
             echo $e->getMessage();
         }
     }
+
+    function GetClanMembersByID($id){
+        $connect=connectdb();
+        try {
+            $sql="
+            SELECT name,uid from account where clan_id = :id
+            ";
+            $stmt=$connect->prepare($sql);
+            $stmt->bindValue(":id",$id);
+            $stmt->execute();
+            $play = $stmt->fetchAll();
+            return $play;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    function GetClanNameByID($id){
+        $connect=connectdb();
+        try {
+            $sql="
+            select id,name from clan where id = :id
+            ";
+            $stmt=$connect->prepare($sql);
+            $stmt->bindValue(":id",$id);
+            $stmt->execute();
+            $play = $stmt->fetchAll();
+            return $play;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    function GetClanLeaderByID($id){
+    $connect=connectdb();
+    try {
+        $sql="
+        select leader_uid from clan where id = :id
+        ";
+        $stmt=$connect->prepare($sql);
+        $stmt->bindValue(":id",$id);
+        $stmt->execute();
+        $play = $stmt->fetchAll();
+        return $play;
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+    }
     function PlayerInfo($id){
         $connect=connectdb();
         try {
             $sql="
-            SELECT uid,name,score,locker,DATE_FORMAT(first_connect_at,'%b %d, %Y - %h:%i %p') as first_connect_at, DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at, DATE_FORMAT(last_disconnect_at,'%b %d, %Y - %h:%i %p') as last_disconnect_at,total_connections from account where uid = :id
+            SELECT uid,name,clan_id,score,locker,DATE_FORMAT(first_connect_at,'%b %d, %Y - %h:%i %p') as first_connect_at, DATE_FORMAT(last_connect_at,'%b %d, %Y - %h:%i %p') as last_connect_at, DATE_FORMAT(last_disconnect_at,'%b %d, %Y - %h:%i %p') as last_disconnect_at,total_connections from account where uid = :id
             ";
             $stmt=$connect->prepare($sql);
             $stmt->bindValue(":id",$id);
@@ -174,6 +239,21 @@
         }
     }
 
+    function GetAllClans(){
+        $connect=connectdb();
+        try {
+            $sql="
+            SELECT id,clan.name,a.name as leader_name,leader_uid from clan
+            inner join account a on leader_uid = a.uid
+            ";
+            $stmt=$connect->prepare($sql);
+            $stmt->execute();
+            $accounts = $stmt->fetchAll();
+            return $accounts;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
     function FindDupersWaste(){
         $connect=connectdb();
