@@ -26,6 +26,7 @@ header("Location: " . $_SERVER["PHP_SELF"]);
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TOOLS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="accounts.php">ACCOUNTS</a></li>
+                        <li><a href="clans.php">CLANS</a></li>
                         <li><a href="poptabs.php">POPTABS</a></li>
                         <div class="divider"></div>
                         <li><a href="territories.php">TERRITORY LIST</a></li>
