@@ -1,4 +1,4 @@
-# Exile PHP Admin Tools/Portal by Choppra (www.ATDGaming.com)
+# Exile PHP Admin Tools/Portal by Choppra
 
 # Introduction
 I have no formal programming background.  This project originally started as a simple tool to be able to read logs and view server information.  As time went on I decided to expand.  Some of you programmers and php experts may not agree with the way I am doing things.  I am open to feedback and also suggestions but in the end this was done as a fun project and I am far from an expert in this area.  I've also styled this based on a 24inch Monitor Setup running at 1920x1080.  You can adjust tables as you see fit to work with other resolutions.
