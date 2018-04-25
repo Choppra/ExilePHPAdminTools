@@ -6,6 +6,7 @@ I have no formal programming background.  This project originally started as a s
 # Prerequisites
 * Knowledge of MySQL (Setting up Accounts and Creating Tables)
 * Web server knowledge (how to set up, etc)
+* server needs infistar
 
 # Support
 I will not provide support ANYWHERE except on the github page dedicated to this project.  If you have a suggestion or issue, please submit an issue on github.
