@@ -1,6 +1,6 @@
 This project is likely a little out of date due to the changes that occured while I quit developing for ARMA3/Exile.
 
-Please check out [[https://github.com/deringers/ExilePHPAdminTools] for some updates coming.
+Please check out https://github.com/deringers/ExilePHPAdminTools.  This is a new project thats coming which will use some of my queries and concepts.
 
 # Exile PHP Admin Tools/Portal
 
